@@ -19,6 +19,7 @@ describe('Location Demo', function(){
         cy.get('#point').type('15000');
         cy.get('#stock').type('10');
         cy.get('#type').select('Physical');
+        cy.get('#image')
      }) 
 
 })
