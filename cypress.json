@@ -1,6 +1,14 @@
 {
-    
     "chromeWebSecurity": false,
     "viewportWidth": 1280,
-    "viewportHeight": 720
+    "viewportHeight": 720,
+    "screenshotOnRunFailure": true,
+    "reporter": "cypress-mochawesome-reporter",
+    "reporterOptions": {
+        "reportDir": "cypress/report",
+        "charts": true,
+        "reportPageTitle": "David Demo Report",
+        "embeddedScreenshots": true
+    }
 }
+

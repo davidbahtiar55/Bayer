@@ -18,34 +18,43 @@ describe('Location Demo', function(){
 
         //Input Username (Role Super Admin)
         cy.get('.mb-3 > .form-control').type('su@insignia.co.id');
+
         //Input Password
         cy.get('.mb-4 > .form-control').type('admin1234');
-        
+
+        //Submit Login
         cy.get(':nth-child(1) > .btn').click();
 
-        //Click Rewards Role Company User
-        // cy.get(':nth-child(7) > .nav-link').click();
+        //Select Menu Product Role Super Admin & Company User
+        cy.get(':nth-child(3) > .nav-link').click();
 
-        //Click Rewards Role Super Admin
-        cy.get(':nth-child(9) > .nav-link').click();
-        // cy.wait(4000)
-        cy.get('.btn').click();
+        cy.get('.col.d-flex > a > .btn').click();
 
-        cy.contains('Scania Motor').click();
-        cy.get('#code').type('RWCAF1');
-        cy.get('#name').type('Tiket Penerbangan');
-        cy.get('#point').type('15000');
-        cy.get('#stock').type('10');
-        cy.get('#type').select('Physical');
+        //Click Data Company for Role Company User
+        cy.get('.css-6j8wv5-Input').click();
+        
+        //Select Companies For Role Super Admin
+        cy.contains('Mandalika Tbk').click();
+
+        //Input Product
+        cy.get('#name').type('Payung');
+
+        //Input Description
+        cy.get('#description').type('Lorem Ipsum');
+
+        //Input Transaction
+        cy.get('#transaction').type('15000');
 
         //Input Kalender
-        cy.get('.type').click();
+        cy.get('#periode').type('2012-01-01');
 
         //Upload File
         const imagefile = 'aair.png';
         cy.get('[name="image"]').attachFile(imagefile);
 
-        // cy.get('.btn').click();
-     }) 
+        //Submit data
+        cy.get('.btn').click();
+
+    }) 
 
 })
