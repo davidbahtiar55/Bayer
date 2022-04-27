@@ -18,6 +18,7 @@ describe('Location Demo', function(){
 
         //Input Username (Role Super Admin)
         cy.get('.mb-3 > .form-control').type('su@insignia.co.id');
+
         //Input Password
         cy.get('.mb-4 > .form-control').type('admin1234');
         
@@ -29,23 +30,35 @@ describe('Location Demo', function(){
         //Click Rewards Role Super Admin
         cy.get(':nth-child(9) > .nav-link').click();
         // cy.wait(4000)
-        cy.get('.btn').click();
+        cy.get('.col.d-flex > a > .btn').click({force: true});
 
+        //Click Data Company for Role Company User
+        cy.get('.css-6j8wv5-Input').click({force: true});
+        
+        //Select Companies For Role Super Admin 
         cy.contains('Scania Motor').click();
-        cy.get('#code').type('RWCAF1');
-        cy.get('#name').type('Tiket Penerbangan');
-        cy.get('#point').type('15000');
-        cy.get('#stock').type('10');
-        cy.get('#type').select('Physical');
 
-        //Input Kalender
-        cy.get('.type').click();
+        //Input Code
+        cy.get('#code').type('RWCAF5');
+
+        //Input Name Rewards
+        cy.get('#name').type('Tiket Penerbangan');
+
+        //Input Point
+        cy.get('#point').type('15000');
+
+        //Input Stock
+        cy.get('#stock').type('10');
+
+        //Select Type
+        cy.get('#type').select('Physical');
 
         //Upload File
         const imagefile = 'aair.png';
         cy.get('[name="image"]').attachFile(imagefile);
 
-        // cy.get('.btn').click();
+        //Submit Data Rewards
+        cy.get('.btn').click();
      }) 
 
 })

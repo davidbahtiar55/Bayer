@@ -37,7 +37,7 @@ describe('Location Demo', function(){
         cy.contains('Mandalika Tbk').click();
 
         //Input Product
-        cy.get('#name').type('Payung');
+        cy.get('#name').type('Mousepad');
 
         //Input Description
         cy.get('#description').type('Lorem Ipsum');
