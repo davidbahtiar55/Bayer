@@ -1,7 +1,7 @@
 describe('Location Demo', function(){
 
     beforeEach(function(){
-        cy.visit('http://159.65.3.9:1338/')
+        cy.visit('https://crm-cms.stag-rewardx.insignia.co.id/#/tiering')
     });
 
     it('should have title tag with value Loyalty CMS', function(){
@@ -39,10 +39,10 @@ describe('Location Demo', function(){
         cy.contains('Scania Motor').click();
 
         //Input Code
-        cy.get('#code').type('RWCAF5');
+        cy.get('#code').type('RWCAF9');
 
         //Input Name Rewards
-        cy.get('#name').type('Tiket Penerbangan');
+        cy.get('#name').type('Engine Blok');
 
         //Input Point
         cy.get('#point').type('15000');

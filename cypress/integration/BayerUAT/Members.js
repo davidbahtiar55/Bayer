@@ -8,7 +8,7 @@ describe('Location Demo', function(){
         cy.title().should('eq','Loyalty CMS');
     });
 
-     it('should redirect Menu Product', function(){
+     it('should redirect Menu Member', function(){
 
         //Input Username (Role Compny User)
         // cy.get('.mb-3 > .form-control').type('cte@mail.com');
@@ -25,36 +25,35 @@ describe('Location Demo', function(){
         //Submit Login
         cy.get(':nth-child(1) > .btn').click();
 
-        //Select Menu Product Role Super Admin & Company User
-        cy.get(':nth-child(3) > .nav-link').click();
+        //Select Menu Members Role Super Admin & Company User
+        cy.get(':nth-child(2) > .nav-link').click();
 
-        cy.get('.col.d-flex > a > .btn').click();
+        //Click Add Btn Members
+        cy.get('.col.d-flex > a > .btn').click({force: true});
 
         //Click Data Company for Role Company User
         cy.get('.css-6j8wv5-Input').click();
         
         //Select Companies For Role Super Admin
-        cy.contains('Mandalika Tbk').click();
+        cy.contains('Amd Tbk').click();
 
-        //Input Product
-        cy.get('#name').type('Mousepad');
+        //Input Fullname
+        cy.get('#fullname').type('nono');
 
-        //Input Description
-        cy.get('#description').type('Lorem Ipsum');
+        //Input Phone
+        cy.get('#phone').type('081378840000');
 
         //Input Transaction
-        cy.get('#transaction').type('15000');
+        cy.get('#email').type('no2@mail.com');
 
-        //Input Kalender
-        cy.get('#periode').type('2012-01-01');
+        //Input Password
+        cy.get('#password').type('coba123');
 
-        //Upload File
-        const imagefile = 'aair.png';
-        cy.get('[name="image"]').attachFile(imagefile);
+        //Input Birth Date
+        cy.get('#birthdate').type('2012-01-01');
 
         //Submit data
         cy.get('.btn').click();
-
     }) 
 
 })
