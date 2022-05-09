@@ -9,6 +9,12 @@
         "charts": true,
         "reportPageTitle": "David Demo Report",
         "embeddedScreenshots": true
+    },
+    "env":{
+        "baseUrl" : "https://crm-cms.stag-rewardx.insignia.co.id/#/tiering",
+        "username" : "su@insignia.co.id",
+        "password" : "admin1234"
     }
+
 }
 
