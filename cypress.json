@@ -7,7 +7,7 @@
     "reporterOptions": {
         "reportDir": "cypress/report",
         "charts": true,
-        "reportPageTitle": "David Demo Report",
+        "reportPageTitle": "CMS Automation Report",
         "embeddedScreenshots": true
     },
     "env":{
