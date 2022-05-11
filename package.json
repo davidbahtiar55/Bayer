@@ -1,0 +1,24 @@
+{
+  "name": "automation",
+  "version": "1.0.0",
+  "description": "Cypress",
+  "main": "index.js",
+  "scripts": {
+    "test": "test",
+    "cypress:open": "cypress open"
+  },
+  "keywords": [
+    "e2e",
+    "test",
+    "cypress",
+    "automation",
+    "frameworks"
+  ],
+  "author": "David",
+  "license": "ISC",
+  "devDependencies": {
+    "cypress": "^9.6.0",
+    "cypress-file-upload": "^5.0.8",
+    "cypress-mochawesome-reporter": "^3.0.1"
+  }
+}

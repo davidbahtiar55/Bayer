@@ -1,0 +1,14 @@
+{
+    "env": {
+        "baseUrl": "https://crm-cms.stag-rewardx.insignia.co.id/#/tiering",
+        "username": "su@insignia.co.id",
+        "password": "admin1234"
+    },
+    "reporter": "cypress-mochawesome-reporter",
+    "reporterOptions": {
+        "reportDir": "cypress/report",
+        "charts": true,
+        "reportPageTitle": "insignia Report",
+        "embeddedScreenshots" : true
+    }
+}
