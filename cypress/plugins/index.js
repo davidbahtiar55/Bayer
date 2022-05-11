@@ -1,4 +1,5 @@
-/// <reference types="cypress" />
+const { beforeRunHook, afterRunHook } = require('cypress-mochawesome-reporter/lib');
+ //<reference types="cypress" />
 // ***********************************************************
 // This example plugins/index.js can be used to load plugins
 //
@@ -17,9 +18,21 @@
  */
 // eslint-disable-next-line no-unused-vars
 module.exports = (on, config) => {
-  // `on` is used to hook into various events Cypress emits
-  // `config` is the resolved Cypress config
-}
+
+};
+
 module.exports = (on, config) => {
   require('cypress-mochawesome-reporter/plugin')(on);
 };
+
+// module.exports = (on) => {
+//   on('before:run', async (details) => {
+//     console.log('override before:run');
+//     await beforeRunHook(details);
+//   });
+
+//   on('after:run', async () => {
+//     console.log('override after:run');
+//     await afterRunHook();
+//   });
+// };
