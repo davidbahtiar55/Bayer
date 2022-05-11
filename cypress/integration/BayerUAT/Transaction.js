@@ -1,9 +1,9 @@
 //<reference types="Cypress"/>
 
 //PLEASE UPDATE THIS VARIBLE BEFORE RUN TEST 
-const invoice1 = 'INV-022'
-const invoice2 = 'INV-022'
-const uniquecode = 'GJU022'
+const invoice1 = 'INV-024'
+const invoice2 = 'INV-024'
+const uniquecode = 'GJU024'
 
 
 beforeEach(() => {
@@ -19,7 +19,7 @@ describe('Transaction', () => {
         it('Upload with Valid Data', function () {
             cy.get(transc_menu).click()
             cy.get(addtransc_btn).click({ force: true })
-            cy.get(memberReceipt_form).type(member, { force: true }).type(enter)
+            cy.get(memberReceipt_form).type(member, { force: true }).wait(5000).type(enter)
             cy.get(invoice_form).type(invoice1, { force: true })
             cy.get(transaction_form).type(total_transc, { force: true })
             cy.get(retailer_form).type(retailer, { force: true }).type(enter)
@@ -28,20 +28,20 @@ describe('Transaction', () => {
             cy.get(img_form).selectFile('cypress/fixtures/img/nota2.jpg', { action: 'drag-drop' })
             cy.get(status_form).select(status)
 
-            // ADD Point (Mobil Diecast)
+            // ADD Point (Sepatu Anak)
             cy.get(action_form).type(action1, { force: true }).type(enter)
+            cy.get(qty_form).clear()
             cy.get(qty_form).type(qty1, { force: true })
             cy.get(addpoint_btn).click()
-            cy.get(qty_form).clear()
-            cy.get('tbody > tr > :nth-child(1)').should('have.text', 'Mobil Diecast')   
-            cy.get('tbody > tr > :nth-child(3)').should('have.text', '11000')
+            cy.get('tbody > tr > :nth-child(1)').should('have.text', 'Sepatu Anak')   
+            cy.get('tbody > tr > :nth-child(3)').should('have.text', '6000000')
 
             // ADD Point (Baju Baja)
-            cy.get(action_form).type(action2, { force: true }).type(enter)
-            cy.get(qty_form).type(qty2, { force: true })
-            cy.get(addpoint_btn).click()
-            cy.get('tbody > :nth-child(2) > :nth-child(1)').should('have.text', 'Baju Baja')
-            cy.get('tbody > :nth-child(2) > :nth-child(3)').should('have.text', '10500')
+            // cy.get(action_form).type(action2, { force: true }).type(enter)
+            // cy.get(qty_form).type(qty2, { force: true })
+            // cy.get(addpoint_btn).click()
+            // cy.get('tbody > :nth-child(2) > :nth-child(1)').should('have.text', 'Dompet Keren')
+            // cy.get('tbody > :nth-child(2) > :nth-child(3)').should('have.text', '10500')
             cy.wait(5000)
 
             cy.get(sumbit_btn).click()
@@ -100,10 +100,10 @@ const date = '2022-05-12'
 const nota1 = 'img/nota1.jpeg'
 const nota2 = 'img/nota2.jpg'
 const status = 'Approve'
-const action1 = 'Mobil Diecast'
-const action2 = 'Baju Baja'
-const qty1 = '2'
-const qty2 = '3'
+const action1 = 'Sepatu Anak'
+const action2 = 'Dompet Keren'
+const qty1 = '20'
+const qty2 = '30'
 
 
 //Object
