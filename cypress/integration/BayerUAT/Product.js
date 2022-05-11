@@ -26,7 +26,7 @@ describe('Location Demo', function(){
         cy.get(':nth-child(1) > .btn').click();
 
         //Select Menu Product Role Super Admin & Company User
-        cy.get(':nth-child(3) > .nav-link').click();
+        cy.get(':nth-child(3) > .nav-link').click({force: true });
 
         cy.get('.col.d-flex > a > .btn').click();
 
@@ -67,7 +67,7 @@ const company_product= 'Mandalika Tbk'
 const selectCompanyp = '.css-ackcql'
 const nameProduct = '#name'
 const companyProduct = '#react-select-2-input'
-const descriptionProduct = ':nth-child(5) > .form-control'
+const descriptionProduct = ':nth-child(3) > .form-control'
 const transactionProduct = '#transaction'
 const periodeProduct = '#periode'
 const btn_submitProduct = '.btn'
