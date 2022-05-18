@@ -1,9 +1,9 @@
 //<reference types="Cypress"/>
 
 //PLEASE UPDATE THIS VARIBLE BEFORE RUN TEST 
-const invoice1 = 'INV-024'
-const invoice2 = 'INV-024'
-const uniquecode = 'GJU024'
+const invoice1 = 'INV-037'
+const invoice2 = 'INV-037'
+const uniquecode = 'GJU037'
 
 
 beforeEach(() => {
@@ -29,7 +29,7 @@ describe('Transaction', () => {
             cy.get(status_form).select(status)
 
             // ADD Point (Sepatu Anak)
-            cy.get(action_form).type(action1, { force: true }).type(enter)
+            cy.get(action_form).type('Sepatu Anak', { force: true }).type(enter)
             cy.get(qty_form).clear()
             cy.get(qty_form).type(qty1, { force: true })
             cy.get(addpoint_btn).click()
@@ -100,7 +100,7 @@ const date = '2022-05-12'
 const nota1 = 'img/nota1.jpeg'
 const nota2 = 'img/nota2.jpg'
 const status = 'Approve'
-const action1 = 'Sepatu Anak'
+const action1 = 'Sepatu Dewasa'
 const action2 = 'Dompet Keren'
 const qty1 = '20'
 const qty2 = '30'
