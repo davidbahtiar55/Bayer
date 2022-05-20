@@ -35,13 +35,6 @@ describe('Transaction', () => {
             cy.get(addpoint_btn).click()
             cy.get('tbody > tr > :nth-child(1)').should('have.text', 'Sepatu Anak')   
             cy.get('tbody > tr > :nth-child(3)').should('have.text', '6000000')
-
-            // ADD Point (Baju Baja)
-            // cy.get(action_form).type(action2, { force: true }).type(enter)
-            // cy.get(qty_form).type(qty2, { force: true })
-            // cy.get(addpoint_btn).click()
-            // cy.get('tbody > :nth-child(2) > :nth-child(1)').should('have.text', 'Dompet Keren')
-            // cy.get('tbody > :nth-child(2) > :nth-child(3)').should('have.text', '10500')
             cy.wait(5000)
 
             cy.get(sumbit_btn).click()
