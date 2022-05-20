@@ -28,7 +28,7 @@ describe('Location Demo', function () {
         //Select Menu Product Role Super Admin & Company User
         cy.get(':nth-child(3) > .nav-link').click({ force: true });
 
-        cy.get('.col.d-flex > a > .btn').click();
+        cy.get('.col.d-flex > a > .btn').click({ force: true });
 
         //Select Companies For Role Super Admin
         cy.get(companyProduct).type(company_product, { force: true }).type(enter)
@@ -63,7 +63,7 @@ describe('Location Demo', function () {
 
 
 // Variabel
-const name_product = 'Cam web 1'
+const name_product = 'Apar'
 const description_product = 'Lorem Ipsum'
 const transaction_product = '17000'
 const periode_product = '2022-01-01'
