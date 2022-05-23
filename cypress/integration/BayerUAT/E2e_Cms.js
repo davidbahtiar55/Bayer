@@ -6,18 +6,18 @@ beforeEach(() => {
 })
 
 //UPDATE VARIABLE BEFORE RUN TEST
-const nameCompany = 'InsigniaID 119'
-const retailer_name = 'Insignia Store 119'
-const fUllname_members = 'Tuti 119'
-const phone_members = '081378849119'
-const email_members = 'no119@mail.com'
-const name_product = 'Phone 119'
-const uniquecode = 'ATM119'
-const name_actions ='Light 119'
-const code_actions = 'ACT119'
-const invoice1 = 'INV-119'
-const invoice2 = 'INV-119'
-const code_rewardsp = 'RCP119'
+const nameCompany = 'InsigniaID 133'
+const retailer_name = 'Insignia Store 133'
+const fUllname_members = 'Tuti 133'
+const phone_members = '081378849133'
+const email_members = 'no1233@mail.com'
+const name_product = 'Phone 133'
+const uniquecode = 'ATM133'
+const name_actions ='Light 133'
+const code_actions = 'ACT133'
+const invoice1 = 'INV-133'
+const invoice2 = 'INV-133'
+const code_rewardsp = 'RCP133'
 
 //Object Ghoib
 const companyRewardsp = '#react-select-5-input'
@@ -60,8 +60,8 @@ describe('Company - Retail', () => {
 
             //ADD RETAIL
             cy.wait(2000)
-            cy.get(retailer_menu).click()
-            cy.get(add_btn).click()
+            cy.get(retailer_menu).click({ force: true })
+            cy.get(add_btn).click({ force: true })
             cy.wait(2000)
             cy.get(company_form).type(nameCompany, { force: true }).type(enter)
             cy.get(name_form).type(retailer_name)
@@ -93,7 +93,7 @@ describe('Company - Retail', () => {
             //ADD REWADS
             //PHYSICAL
             cy.get(':nth-child(9) > .nav-link').click({ force: true });
-            cy.get('.col.d-flex > a > .btn').click();
+            cy.get('.col.d-flex > a > .btn').click({ force: true });
             cy.get(companyRewardsp).type(nameCompany, { force: true }).type(enter);
             cy.get(codeRewards).type(code_rewardsp, { force: true });
             cy.get(nameRewards).type(name_rewardsp);
@@ -129,7 +129,7 @@ describe('Company - Retail', () => {
             cy.get(havemaxcapAction).check()
             cy.get(btnsubmitActions).click()
 
-            cy.get(name_tba).should('have.text', name_actions)
+            cy.get(name_tba).should('have.text', name_actions).wait(2000)
             cy.get(code_tba).should('have.text', code_actions)
             cy.get(generationdays_tba).should('have.text', maxcapperiode_actions)  
             cy.wait(4000)
@@ -157,28 +157,28 @@ describe('Company - Retail', () => {
 
 
             //Redeem
-            cy.get(redeem_menu).click()
-             // cy.wait(3000)
-            cy.get(addRedeem_btn).click({ force: true })
-            cy.get(member_form).type(fUllname_members, { force: true }).wait(2000).type(enter)
-            cy.get(description_form).type(descreward)
-            cy.get(receiverName_form).type(receiverName)
-            cy.get(receiverPhone_form).type(receiverPhone)
-            cy.get(receiverAddress_form).type(receiverAddress)
-            cy.get(reward_form).type(reward_1, { force: true }).type(enter)
-            cy.get(qty_form_1).clear().type(qty2)
+            // cy.get(redeem_menu).click()
+            // cy.wait(3000)
+            // cy.get(addRedeem_btn).click({ force: true }).type(enter)
+            // cy.get(member_form).type(fUllname_members, { force: true }).wait(2000).type(enter)
+            // cy.get(description_form).type(descreward)
+            // cy.get(receiverName_form).type(receiverName)
+            // cy.get(receiverPhone_form).type(receiverPhone)
+            // cy.get(receiverAddress_form).type(receiverAddress)
+            // cy.get(reward_form).type(reward_1, { force: true }).type(enter)
+            // cy.get(qty_form_1).clear().type(qty2)
 
-            cy.get(totalPoint_obj).should('have.text', totalPoint) //Check Grand Total Redemption
+            // cy.get(totalPoint_obj).should('have.text', totalPoint) //Check Grand Total Redemption
 
-            cy.get(submit_btn).click()
+            // cy.get(submit_btn).click()
 
-            //Check redemption table after submit form
-            cy.get(member_tb).should('have.text', fUllname_members)
-            cy.get(receiverName_tb).should('have.text', receiverName)
-            cy.get(totalPoint_tb).should('have.text', '30.000')
-            cy.get(status_tb).should('have.text', waitingStatus)
+            // //Check redemption table after submit form
+            // cy.get(member_tb).should('have.text', fUllname_members)
+            // cy.get(receiverName_tb).should('have.text', receiverName)
+            // cy.get(totalPoint_tb).should('have.text', '30.000')
+            // cy.get(status_tb).should('have.text', waitingStatus)
 
-            //  //MEMBER
+             //MEMBER
             // cy.get(':nth-child(2) > .nav-link').click();
             // cy.get('.col.d-flex > a > .btn').click()
             // cy.get(companyMembers).type(company_members, { force: true }).type(enter)

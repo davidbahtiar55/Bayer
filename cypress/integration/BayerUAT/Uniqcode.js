@@ -8,7 +8,7 @@ describe('Location Demo', function () {
         cy.title().should('eq', 'Loyalty CMS');
     });
 
-    it.skip('should redirect Menu UniqCode', function () {
+    it('should redirect Menu UniqCode', function () {
 
         //Input Username (Role Compny User)
         // cy.get('.mb-3 > .form-control').type('cte@mail.com');
@@ -32,22 +32,18 @@ describe('Location Demo', function () {
         cy.get('.col.d-flex > a > .btn').click();
 
         //Input Code
-        cy.get('#code').type('ACB001');
+        cy.get('#code').type('ACB101');
 
         //Select Status
         cy.get('#statuss').select('Available');
-
-        //Select Product
-        cy.get('.css-6j8wv5-Input').click();
-
         //Input Product
-        cy.contains('Modem USB').click();
+        cy.get(productUniqcode).type(product_uniqcode, { force: true }).type(enter)
 
         //Submit data
         cy.get('.btn').click();
     })
 
-    it('Generate UniqCode', function () {
+    it.skip('Generate UniqCode', function () {
 
         //Input Username (Role Compny User)
         // cy.get('.mb-3 > .form-control').type('cte@mail.com');
@@ -73,13 +69,18 @@ describe('Location Demo', function () {
         //Input Quantity
         cy.get('#quantity').type('5');
 
-        //Select Product
-        cy.get('.css-ackcql').click();
-
         //Input Product
-        cy.contains('Dana').click();
+        cy.get(productUniqcode).type(product_uniqcode, { force: true }).type(enter)
 
         //Submit Generate Uniqcode
         cy.get('form > .btn').click();
     })
 })
+
+
+// Variabel
+const product_uniqcode = 'Stand'
+
+// Object
+const productUniqcode = '#react-select-2-input'
+const enter = '{enter}'
