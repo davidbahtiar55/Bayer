@@ -1,6 +1,6 @@
 {
     "env": {
-        "baseUrl": "https://crm-cms.stag-rewardx.insignia.co.id/#/tiering",
+        "baseUrl": "https://crm-cms.stag-rewardx.insignia.co.id/",
         "username": "su@insignia.co.id",
         "password": "admin1234"
     },
