@@ -6,18 +6,19 @@ beforeEach(() => {
 })
 
 //UPDATE VARIABLE BEFORE RUN TEST
-const nameCompany = 'InsigniaID 133'
-const retailer_name = 'Insignia Store 133'
-const fUllname_members = 'Tuti 133'
-const phone_members = '081378849133'
-const email_members = 'no1233@mail.com'
-const name_product = 'Phone 133'
-const uniquecode = 'ATM133'
-const name_actions ='Light 133'
-const code_actions = 'ACT133'
-const invoice1 = 'INV-133'
-const invoice2 = 'INV-133'
-const code_rewardsp = 'RCP133'
+const nameCompany = 'InsigniaID 258'
+const retailer_name = 'Insignia Store 258'
+const fUllname_members = 'Tuti 258'
+const phone_members = '081378849258'
+const email_members = 'no258@mail.com'
+const name_product = 'Phone 258'
+const uniquecode = 'ATM258'
+const name_actions ='Light 258'
+const code_actions = 'ACT258'
+const invoice1 = 'INV-258'
+const invoice2 = 'INV-258'
+const code_rewardsp = 'RCP258'
+const name_rewardsp = 'Medali 258'
 
 //Object Ghoib
 const companyRewardsp = '#react-select-5-input'
@@ -28,10 +29,11 @@ const retailerCode_form = '#react-select-12-input'
 const uniquecode_form = '#react-select-13-input'
 const productActions = '#react-select-8-input'
 const member_form = '#react-select-14-input'
+const reward_form = '#react-select-15-input'
 
-describe('Company - Retail', () => {
-    context('Add Company - Add Retail', function () {
-        it('Add Company - Add Retail', function () {
+describe('Flow CMS', () => {
+    context('Flow CMS', function () {
+        it('Full Flow CMS', function () {
             //ADD COMPANY
             cy.get(company_menu).click()
             cy.get(add_btn).click()
@@ -48,15 +50,15 @@ describe('Company - Retail', () => {
 
             //ADD MEMBER
             cy.wait(2000)
-            cy.get(':nth-child(2) > .nav-link').click({ force: true });
-            cy.get('.col.d-flex > a > .btn').click({ force: true });
-            cy.get(companyMembers).type(nameCompany, { force: true }).type(enter)
-            cy.get(fUllnameMembers).type(fUllname_members);
-            cy.get(phoneMembers).type(phone_members);
-            cy.get(emailMembers).type(email_members);
-            cy.get(passwordMembers).type(password_members);
-            cy.get(birthdateMembers).type(birthdate_members);
-            cy.get(submit_btn).click();
+            cy.get(':nth-child(2) > .nav-link').click({ force: true })
+            cy.get('.col.d-flex > a > .btn').click({ force: true })
+            cy.get(companyMembers).type(nameCompany, { force: true }).wait(3000).type(enter)
+            cy.get(fUllnameMembers).type(fUllname_members)
+            cy.get(phoneMembers).type(phone_members)
+            cy.get(emailMembers).type(email_members)
+            cy.get(passwordMembers).type(password_members)
+            cy.get(birthdateMembers).type(birthdate_members)
+            cy.get(submit_btn).click()
 
             //ADD RETAIL
             cy.wait(2000)
@@ -71,72 +73,77 @@ describe('Company - Retail', () => {
 
             //ADD PRODUCT
             cy.wait(2000)
-            cy.get(':nth-child(3) > .nav-link').click({ force: true });
-            cy.get('.col.d-flex > a > .btn').click({ force: true });
+            cy.get(':nth-child(3) > .nav-link').click({ force: true })
+            cy.get('.col.d-flex > a > .btn').click({ force: true })
             cy.wait(4000)
             cy.get(companyProduct).type(nameCompany, { force: true }).type(enter)
             cy.wait(4000)
-            cy.get(nameProduct).type(name_product);
-            cy.get(descriptionProduct).type(description_product);
-            cy.get(transactionProduct).type(transaction_product);
-            cy.get(periodeProduct).type(periode_product);
-            const imagefileProuct = 'aair.png';
-            cy.get('[name="image"]').attachFile(imagefileProuct);
-            cy.get(btn_submitProduct).click();
+            cy.get(nameProduct).type(name_product)
+            cy.get(descriptionProduct).type(description_product)
+            cy.get(transactionProduct).type(transaction_product)
+            cy.get(periodeProduct).type(periode_product)
+            const imagefileProuct = 'aair.png'
+            cy.get('[name="image"]').attachFile(imagefileProuct)
+            cy.wait(10000)
+            cy.get(btn_submitProduct).click()
             //Check Product table
+            cy.wait(20000)
             cy.get(tb_name).should('have.text', name_product)
-            cy.wait(4000)
             cy.get(tb_description).should('have.text', description_product)
             cy.get(tb_periode).should('have.text', periode_product)
             cy.get(tb_company).should('have.text', nameCompany)
 
             //ADD REWADS
             //PHYSICAL
-            cy.get(':nth-child(9) > .nav-link').click({ force: true });
-            cy.get('.col.d-flex > a > .btn').click({ force: true });
-            cy.get(companyRewardsp).type(nameCompany, { force: true }).type(enter);
-            cy.get(codeRewards).type(code_rewardsp, { force: true });
-            cy.get(nameRewards).type(name_rewardsp);
-            cy.get(pointRewards).type(point_rewards);
-            cy.get(stockRewards).type(stock_rewards);
-            cy.get(typepRewards).select(typeP_rewards);
-            const imagefilePhyisical = 'aair.png';
-            cy.get('[name="image"]').attachFile(imagefilePhyisical);
-            cy.get(btn_submitRewards).click();
-            cy.wait(4000)
+            cy.get(':nth-child(9) > .nav-link').click({ force: true })
+            cy.get('.col.d-flex > a > .btn').click({ force: true })
+            cy.get(companyRewardsp).type(nameCompany, { force: true }).type(enter)
+            cy.get(codeRewards).type(code_rewardsp, { force: true })
+            cy.get(nameRewards).type(name_rewardsp)
+            cy.get(pointRewards).type(point_rewards)
+            cy.get(stockRewards).type(stock_rewards)
+            cy.get(typepRewards).select(typeP_rewards)
+            const imagefilePhyisical = 'aair.png'
+            cy.get('[name="image"]').attachFile(imagefilePhyisical)
+            cy.wait(5000)
+            cy.get(btn_submitRewards).click()
+            cy.wait(5000)
+
 
             //Uniquecode
-            cy.get(':nth-child(4) > .nav-link').click({force:true}).wait(2000);
-            cy.get('.col.d-flex > a > .btn').click({force:true}).wait(2000);
-            cy.get('#code').type(uniquecode);                     //UNIQUE
-            cy.get('#statuss').select('Available');
-            cy.wait(4000)
-            cy.get('#react-select-6-input').type(name_product, { force: true }).type(enter)
-            cy.get('.btn').click();  
-            cy.wait(4000)
-
-             //Action
-            cy.get(':nth-child(6) > .nav-link').click({force:true});
-            cy.get('.col.d-flex > a > .btn').click({force:true});
-            cy.get(companyActions).type(nameCompany, { force: true }).type(enter)
-            cy.get(nameActions).type(name_actions, { force: true })       //Unique
-            cy.get(codeActions).type(code_actions)                        //Unique
-            cy.get(pointActions).type(point_actions)
-            cy.get(maxpointActions).type(maxpoint_actions)
-            cy.wait(3000)
-            cy.get(productActions).type(name_product, { force: true }).wait(2000).type(enter)
-            cy.get(maxcapperiodeActions).type(maxcapperiode_actions)
-            cy.get(havemaxcapAction).check()
-            cy.get(btnsubmitActions).click()
-
-            cy.get(name_tba).should('have.text', name_actions).wait(2000)
-            cy.get(code_tba).should('have.text', code_actions)
-            cy.get(generationdays_tba).should('have.text', maxcapperiode_actions)  
+            cy.get(':nth-child(4) > .nav-link').click({ force: true })
+            cy.wait(5000)
+            cy.get('.col.d-flex > a > .btn').click({ force: true })
+            cy.wait(5000)
+            cy.get('#code').type(uniquecode)                   //UNIQUE
+            cy.get('#statuss').select('Available')
+            cy.get('#react-select-6-input').type(name_product, { force: true }).wait(2000).type(enter)
+            cy.get('.btn').click()
             cy.wait(4000)
 
+        //Action
+        cy.get(':nth-child(6) > .nav-link').click()
+        cy.get('.col.d-flex > a > .btn').click()
+        cy.get(companyActions).type(company_actions, { force: true }).type(enter)
+        cy.get(nameActions).type(name_actions, { force: true })
+        cy.get(codeActions).type(code_actions)
+        cy.get(pointActions).type(point_actions)
+        cy.get(maxpointActions).type(maxpoint_actions)
+        cy.wait(3000) 
+        cy.get(productActions).type(product_actions, { force: true }).type(enter)
+        cy.get(maxcapperiodeActions).type(maxcapperiode_actions)
+        cy.get(havemaxcapAction).check()
+        cy.get(btnsubmitActions).click()
+        cy.wait(7000)
+
+        //Check Actions Table
+        cy.get(name_tba).should('have.text', name_actions)
+        cy.get(code_tba).should('have.text', code_actions)
+        cy.get(generationdays_tba).should('have.text', maxcapperiode_actions)  
 
             //Transaction Unique Code
             cy.get(transc_menu).click()
+            cy.wait(7000)
             cy.get(addtransc_btn).click({ force: true })
             cy.get(type_form).type('Unique Code', { force: true }).type(enter)
             cy.get(memberCode_form).type(fUllname_members, { force: true }).wait(2000).type(enter)
@@ -155,28 +162,28 @@ describe('Company - Retail', () => {
             cy.get(uniquecode_menu).click()
             cy.get('tbody > :nth-child(1) > :nth-child(2)').should('have.text', 'Not Available')
 
-
             //Redeem
-            // cy.get(redeem_menu).click()
-            // cy.wait(3000)
-            // cy.get(addRedeem_btn).click({ force: true }).type(enter)
-            // cy.get(member_form).type(fUllname_members, { force: true }).wait(2000).type(enter)
-            // cy.get(description_form).type(descreward)
-            // cy.get(receiverName_form).type(receiverName)
-            // cy.get(receiverPhone_form).type(receiverPhone)
-            // cy.get(receiverAddress_form).type(receiverAddress)
-            // cy.get(reward_form).type(reward_1, { force: true }).type(enter)
-            // cy.get(qty_form_1).clear().type(qty2)
+            cy.wait(4000)
+            cy.get(redeem_menu).click()
+            cy.wait(3000)
+            cy.get(addRedeem_btn).click({ force: true })
+            cy.get(member_form).type(fUllname_members).type(enter)
 
-            // cy.get(totalPoint_obj).should('have.text', totalPoint) //Check Grand Total Redemption
+            // cy.get(member_form).type(fUllname_members,{ force: true }).type(enter)
+            cy.get(description_form).type(descreward)
+            cy.get(receiverName_form).type(receiverName)
+            cy.get(receiverPhone_form).type(receiverPhone)
+            cy.get(receiverAddress_form).type(receiverAddress)
+            cy.get(reward_form).type(reward_1, { force: true }).type(enter)
+            cy.get(qty_form_1).clear().type(qty2)
+            cy.get(totalPoint_obj).should('have.text', 'Total Point:  30.000') //Check Grand Total Redemption
+            cy.get(submit_btn).click()
 
-            // cy.get(submit_btn).click()
-
-            // //Check redemption table after submit form
-            // cy.get(member_tb).should('have.text', fUllname_members)
-            // cy.get(receiverName_tb).should('have.text', receiverName)
-            // cy.get(totalPoint_tb).should('have.text', '30.000')
-            // cy.get(status_tb).should('have.text', waitingStatus)
+            //Check redemption table after submit form
+            cy.get(member_tb).should('have.text', fUllname_members)
+            cy.get(receiverName_tb).should('have.text', receiverName)
+            cy.get(totalPoint_tb).should('have.text', '300.000')
+            cy.get(status_tb).should('have.text', waitingStatus)
 
              //MEMBER
             // cy.get(':nth-child(2) > .nav-link').click();
@@ -221,7 +228,6 @@ const company_rewards = 'Scania Motor'
 
 const code_rewardsd = 'RWCD99'
 const name_rewardsd = 'Piala'
-const name_rewardsp = 'Medali'
 const point_rewards = '1000'
 const stock_rewards = '10'
 const typeP_rewards = 'Physical'
@@ -278,7 +284,7 @@ const type_tbr = 'tbody > :nth-child(1) > :nth-child(7)'
 //ACTION
 // Variabel
 const company_actions = 'Mandalika Tbk'
-const point_actions = '10000'
+const point_actions = '100000'
 const maxpoint_actions = '20000'
 const product_actions = 'Terminal Satu 1'
 const maxcapperiode_actions = '3'
@@ -364,7 +370,7 @@ const description_form = ':nth-child(2) > .form-control'
 const receiverName_form = '#receiverName'
 const receiverPhone_form = '#receiverPhone'
 const receiverAddress_form = ':nth-child(6) > .form-control'
-const reward_form = '#react-select-3-input'
+
 const qty_form_1 = 'tbody > :nth-child(1) > :nth-child(2) > .form-control'
 const totalPoint_obj = '.col-12 > .d-flex'
 const member_tb = 'tbody > :nth-child(1) > :nth-child(3)'
