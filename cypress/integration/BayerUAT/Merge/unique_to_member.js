@@ -3,33 +3,28 @@ beforeEach(() => {
     cy.get(user_form).type(Cypress.env("username"))
     cy.get(pass_form).type(Cypress.env("password"))
     cy.get(login_btn).click()
+    cy.wait(10000)
 })
 
 //UPDATE VARIABLE BEFORE RUN TEST
-const nameCompany = 'InsigniaID 259'
-const retailer_name = 'Insignia Store 259'
-const fUllname_members = 'Tuti 259'
-const phone_members = '081378849259'
-const email_members = 'no259@mail.com'
-const name_product = 'Phone 258'
-const uniquecode = 'ATM258'
-const name_actions = 'Light 258'
-const code_actions = 'ACT259'
-const invoice1 = 'INV-259'
-const invoice2 = 'INV-259'
-const code_rewardsp = 'RCP259'
-const name_rewardsp = 'Medali 259'
+const uniquecode = 'ATM301'
+const name_product = 'Phone 301'
+const name_actions ='Light 301'
+const code_actions = 'ACT301'
+const fUllname_members = 'Tuti 301'
+const invoice2 = 'INV-301'
+const retailer_name = 'Insignia Store 301'
 
 //Object Ghoib
-const companyRewardsp = '#react-select-5-input'
-const companyActions = '#react-select-7-input'
-const type_form = '#react-select-10-input'
-const memberCode_form = '#react-select-9-input'
-const retailerCode_form = '#react-select-12-input'
-const uniquecode_form = '#react-select-13-input'
-const productActions = '#react-select-8-input'
+const companyActions = '#react-select-3-input'
+const productActions = '#react-select-4-input'
+const type_form = '#react-select-6-input'
+const memberCode_form = '#react-select-5-input'
+const retailerCode_form = '#react-select-9-input'
+const uniquecode_form = '#react-select-7-input'
 const member_form = '#react-select-14-input'
 const reward_form = '#react-select-15-input'
+
 
 describe('Flow CMS Uniquecode - Member Detail', () => {
     context('Flow CMS Uniquecode - Member Detail', function () {
@@ -41,8 +36,8 @@ describe('Flow CMS Uniquecode - Member Detail', () => {
             cy.wait(5000)
             cy.get('#code').type(uniquecode)                   //UNIQUE
             cy.get('#statuss').select('Available')
-            cy.get('#react-select-6-input').type(name_product, { force: true }).wait(2000).type(enter)
-            cy.get('.btn').click()
+            cy.get('#react-select-2-input').type(name_product, { force: true }).wait(2000).type(enter)
+            cy.get(submit_btn).click()
             cy.wait(4000)
 
             //Action
@@ -57,7 +52,7 @@ describe('Flow CMS Uniquecode - Member Detail', () => {
             cy.get(productActions).type(product_actions, { force: true }).type(enter)
             cy.get(maxcapperiodeActions).type(maxcapperiode_actions)
             cy.get(havemaxcapAction).check()
-            cy.get(btnsubmitActions).click()
+            cy.get(submit_btn).click()
             cy.wait(7000)
 
             //Check Actions Table
@@ -77,7 +72,7 @@ describe('Flow CMS Uniquecode - Member Detail', () => {
             cy.get(date_form).type(date, { force: true })
             cy.get(uniquecode_form).type(uniquecode, { force: true }).type(enter)
 
-            cy.get(sumbit_btn).click()
+            cy.get(submit_btn).click()
             cy.get('tbody > :nth-child(1) > :nth-child(1)').should('have.text', name_actions)
             cy.get('tbody > :nth-child(1) > :nth-child(6)').should('have.text', 'uniquecode')
             cy.get('tbody > :nth-child(1) > :nth-child(7)').should('have.text', fUllname_members)
@@ -123,120 +118,92 @@ describe('Flow CMS Uniquecode - Member Detail', () => {
     })
 })
 
+//VAR
+//Unique Code
 
-//Variable
-//Company
-const phone = '085325684999'
-const email = 'insigniaid01@gmail.com'
-const website = 'www.insignia.co.id'
-const address = 'Bonjer Raya'
-
-//Retailer
-const desc = 'Retail Retail Retail'
-const company_members = 'Scania Motor'
-
-//Member
-const password_members = 'coba123'
-const birthdate_members = '2012-01-01'
-
-//Product
-const description_product = 'Lorem Ipsum'
-const transaction_product = '17000'
-const periode_product = '2022-01-01'
-const company_product = 'Mandalika Tbk'
-
-//REWADS PHYSICAL & DIGITAL
-const company_rewards = 'Scania Motor'
-const code_rewardsd = 'RWCD65'
-const name_rewardsd = 'Podium'
-const point_rewards = '1000'
-const stock_rewards = '10'
-const typeP_rewards = 'Physical'
-const typeD_rewards = 'Digital'
-
-//Object
-const user_form = '.mb-3 > .form-control'
-const pass_form = '.mb-4 > .form-control'
-const login_btn = ':nth-child(1) > .btn'
-const fUllnameMembers = '#fullname'
-const phoneMembers = '#phone'
-const emailMembers = '#email'
-const passwordMembers = '#password'
-const birthdateMembers = '#birthdate'
-
-//ACTION
-// Variabel
+//Action
 const company_actions = 'Mandalika Tbk'
 const point_actions = '100000'
 const maxpoint_actions = '20000'
 const product_actions = 'Terminal Satu 1'
 const maxcapperiode_actions = '3'
 
-// Object
-const nameActions = '#name'
-const codeActions = '#code'
-const pointActions = '#point'
-const maxpointActions = '#capGeneration'
-const maxcapperiodeActions = '#capGenerationDays'
-const havemaxcapAction = '#haveCapGeneration'
-const btnsubmitActions = '.btn'
-const name_tba = 'tbody > :nth-child(1) > :nth-child(2)'
-const code_tba = 'tbody > :nth-child(1) > :nth-child(3)'
-const point_tba = 'tbody > :nth-child(1) > :nth-child(4)'
-const maxcap_tba = 'tbody > :nth-child(1) > :nth-child(5)'
-const generationdays_tba = 'tbody > :nth-child(1) > :nth-child(6)'
-const product_tba = 'tbody > :nth-child(1) > :nth-child(7)'
 
-//TRANSACTION
-//Variable
-const member = 'Dimas WA'
-const type = 'Unique Code'
-const total_transc = '15000000'
-const retailer = 'ALFAMART'
+//Transaction
 const address_retail = 'Jl. Tebet Timur'
 const date = '2022-05-12'
-const nota1 = 'img/nota1.jpeg'
-const nota2 = 'img/nota2.jpg'
-const status = 'Approve'
-const action1 = 'Sepatu Dewasa'
-const action2 = 'Dompet Keren'
-const qty1 = '20'
-const qty2 = '30'
 
-//Object
-const uniquecode_menu = ':nth-child(4) > .nav-link'
-const transc_menu = ':nth-child(5) > .nav-link'
-const addtransc_btn = '.col.d-flex > a > .btn'
-const memberReceipt_form = '#react-select-2-input'
-const enter = '{enter}'
-const type_uniquecode = '//*[@value="uniquecode"]/input'
-const invoice_form = '#InvoiceNumber'
-// // const retailerCode_form = '#react-select-10-input'
-const addressretail_form = '#RetailAddress'
-const date_form = '#TransactionDate'
-const sumbit_btn = '.d-flex > .btn'
-
-//REDEEM
-//Variable
+//Redeem
 const descreward = 'Reward Reward Reward Reward Reward'
 const receiverName = 'Putra Herlambang'
 const receiverPhone = '085645213987'
 const receiverAddress = 'Jl. Awas Banyak Anak Kecil No. 45A-B'
 const reward_1 = 'Medali'
-const qty = '2'
-const totalPoint = 'Total Point:  301.000'
+const qty2 = '30'
 const waitingStatus = 'waiting'
 const processStatus = 'process'
 const shippingStatus = 'shipping'
 const completedStatus = 'completed'
 const rejectedStatus = 'rejected'
 
-//Object
+//Member
+const company_members = 'Scania Motor'
+const phone_members = '081378849258'
+const email_members = 'no258@mail.com'
+const password_members = 'coba123'
+const birthdate_members = '2012-01-01'
+
+//OBJ
+//General
+const submit_btn = '.btn'
+const user_form = '.mb-3 > .form-control'
+const pass_form = '.mb-4 > .form-control'
+const login_btn = ':nth-child(1) > .btn'
+const enter = '{enter}'
+
+//Unique Code
+const uniquecode_menu = ':nth-child(4) > .nav-link'
+
+//Action
+const nameActions = '#name'
+const codeActions = '#code'
+const pointActions = '#point'
+const maxpointActions = '#capGeneration'
+const maxcapperiodeActions = '#capGenerationDays'
+const havemaxcapAction = '#haveCapGeneration'
+const name_tba = 'tbody > :nth-child(1) > :nth-child(2)'
+const code_tba = 'tbody > :nth-child(1) > :nth-child(3)'
+const generationdays_tba = 'tbody > :nth-child(1) > :nth-child(6)'
+
+//Transaction
+const transc_menu = ':nth-child(5) > .nav-link'
+const addtransc_btn = '.col.d-flex > a > .btn'
+const invoice_form = '#InvoiceNumber'
+const addressretail_form = '#RetailAddress'
+const date_form = '#TransactionDate'
+
+//Redeem
+const redeem_menu = ':nth-child(10) > .nav-link'
 const addRedeem_btn = '.col.d-flex > a > .btn'
 const description_form = ':nth-child(2) > .form-control'
+const receiverName_form = '#receiverName'
+const receiverPhone_form = '#receiverPhone'
 const receiverAddress_form = ':nth-child(6) > .form-control'
 const qty_form_1 = 'tbody > :nth-child(1) > :nth-child(2) > .form-control'
 const totalPoint_obj = '.col-12 > .d-flex'
+const member_tb = 'tbody > :nth-child(1) > :nth-child(3)'
 const receiverName_tb = 'tbody > :nth-child(1) > :nth-child(4)'
+const totalPoint_tb = 'tbody > :nth-child(1) > :nth-child(9)'
+const status_tb = 'tbody > :nth-child(1) > :nth-child(10)'
+
+//Member
+const companyMembers = '#react-select-2-input'
+const fUllnameMembers = '#fullname'
+const phoneMembers = '#phone'
+const emailMembers = '#email'
+const passwordMembers = '#password'
+const birthdateMembers = '#birthdate'
+
+
 
 
