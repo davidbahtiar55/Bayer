@@ -38,7 +38,7 @@ describe('Flow CMS Company - Reward', () => {
             //ADD MEMBER
             cy.wait(2000)
             cy.get(':nth-child(2) > .nav-link').click({ force: true })
-            cy.get('.col.d-flex > a > .btn').click({ force: true })
+            cy.get('.col.d-flex > a > .btn').click({ force: true }).wait(3000)
             cy.get(companyMembers).type(nameCompany, { force: true }).wait(3000).type(enter)
             cy.get(fUllnameMembers).type(fUllname_members)
             cy.get(phoneMembers).type(phone_members)
