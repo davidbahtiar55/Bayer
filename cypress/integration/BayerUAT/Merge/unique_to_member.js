@@ -7,21 +7,22 @@ beforeEach(() => {
 })
 
 //UPDATE VARIABLE BEFORE RUN TEST
-const uniquecode = 'ATM301'
-const name_product = 'Phone 301'
-const name_actions ='Light 301'
-const code_actions = 'ACT301'
-const fUllname_members = 'Tuti 301'
-const invoice2 = 'INV-301'
-const retailer_name = 'Insignia Store 301'
+const uniquecode = 'ATM302'
+const name_product = 'Phone 302'
+const nameCompany = 'InsigniaID 302'
+const name_actions ='Light 302'
+const code_actions = 'ACT302'
+const fUllname_members = 'Tuti 302'
+const invoice2 = 'INV-302'
+const retailer_name = 'Insignia Store 302'
 
 //Object Ghoib
 const companyActions = '#react-select-3-input'
 const productActions = '#react-select-4-input'
 const type_form = '#react-select-6-input'
 const memberCode_form = '#react-select-5-input'
-const retailerCode_form = '#react-select-9-input'
-const uniquecode_form = '#react-select-7-input'
+const retailerCode_form = '#react-select-8-input'
+const uniquecode_form = '#react-select-9-input'
 const member_form = '#react-select-14-input'
 const reward_form = '#react-select-15-input'
 
@@ -42,14 +43,15 @@ describe('Flow CMS Uniquecode - Member Detail', () => {
 
             //Action
             cy.get(':nth-child(6) > .nav-link').click()
-            cy.get('.col.d-flex > a > .btn').click()
-            cy.get(companyActions).type(company_actions, { force: true }).type(enter)
+            cy.wait(3000)
+            cy.get('.col.d-flex > a > .btn').click({ force: true })
+            cy.get(companyActions).type(nameCompany, { force: true }).wait(5000).type(enter)
             cy.get(nameActions).type(name_actions, { force: true })
             cy.get(codeActions).type(code_actions)
             cy.get(pointActions).type(point_actions)
             cy.get(maxpointActions).type(maxpoint_actions)
             cy.wait(3000)
-            cy.get(productActions).type(product_actions, { force: true }).type(enter)
+            cy.get(productActions).type(name_product, { force: true }).type(enter)
             cy.get(maxcapperiodeActions).type(maxcapperiode_actions)
             cy.get(havemaxcapAction).check()
             cy.get(submit_btn).click()
@@ -71,9 +73,9 @@ describe('Flow CMS Uniquecode - Member Detail', () => {
             cy.get(addressretail_form).type(address_retail, { force: true })
             cy.get(date_form).type(date, { force: true })
             cy.get(uniquecode_form).type(uniquecode, { force: true }).type(enter)
+            cy.get(submit_btn_transc).click({ force: true })
 
-            cy.get(submit_btn).click()
-            cy.get('tbody > :nth-child(1) > :nth-child(1)').should('have.text', name_actions)
+            cy.get('tbody > :nth-child(1) > :nth-child(1)').should('have.text', invoice2)
             cy.get('tbody > :nth-child(1) > :nth-child(6)').should('have.text', 'uniquecode')
             cy.get('tbody > :nth-child(1) > :nth-child(7)').should('have.text', fUllname_members)
             cy.wait(6000)
@@ -122,10 +124,9 @@ describe('Flow CMS Uniquecode - Member Detail', () => {
 //Unique Code
 
 //Action
-const company_actions = 'Mandalika Tbk'
 const point_actions = '100000'
 const maxpoint_actions = '20000'
-const product_actions = 'Terminal Satu 1'
+
 const maxcapperiode_actions = '3'
 
 
@@ -156,6 +157,7 @@ const birthdate_members = '2012-01-01'
 //OBJ
 //General
 const submit_btn = '.btn'
+const submit_btn_transc = '.d-flex > .btn'
 const user_form = '.mb-3 > .form-control'
 const pass_form = '.mb-4 > .form-control'
 const login_btn = ':nth-child(1) > .btn'
