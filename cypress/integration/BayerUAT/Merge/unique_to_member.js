@@ -84,38 +84,38 @@ describe('Flow CMS Uniquecode - Member Detail', () => {
             cy.get('tbody > :nth-child(1) > :nth-child(2)').should('have.text', 'Not Available')
 
             //Redeem
-            cy.wait(4000)
-            cy.get(redeem_menu).click()
-            cy.wait(3000)
-            cy.get(addRedeem_btn).click({ force: true })
-            cy.get(member_form).type(fUllname_members).type(enter)
+            // cy.wait(4000)
+            // cy.get(redeem_menu).click()
+            // cy.wait(3000)
+            // cy.get(addRedeem_btn).click({ force: true })
+            // cy.get(member_form).type(fUllname_members).type(enter)
 
             //cy.get(member_form).type(fUllname_members,{ force: true }).type(enter)
-            cy.get(description_form).type(descreward)
-            cy.get(receiverName_form).type(receiverName)
-            cy.get(receiverPhone_form).type(receiverPhone)
-            cy.get(receiverAddress_form).type(receiverAddress)
-            cy.get(reward_form).type(reward_1, { force: true }).type(enter)
-            cy.get(qty_form_1).clear().type(qty2)
-            cy.get(totalPoint_obj).should('have.text', 'Total Point:  30.000') //Check Grand Total Redemption
-            cy.get(submit_btn).click()
+            // cy.get(description_form).type(descreward)
+            // cy.get(receiverName_form).type(receiverName)
+            // cy.get(receiverPhone_form).type(receiverPhone)
+            // cy.get(receiverAddress_form).type(receiverAddress)
+            // cy.get(reward_form).type(reward_1, { force: true }).type(enter)
+            // cy.get(qty_form_1).clear().type(qty2)
+            // cy.get(totalPoint_obj).should('have.text', 'Total Point:  30.000') //Check Grand Total Redemption
+            // cy.get(submit_btn).click()
 
             //Check redemption table after submit form
-            cy.get(member_tb).should('have.text', fUllname_members)
-            cy.get(receiverName_tb).should('have.text', receiverName)
-            cy.get(totalPoint_tb).should('have.text', '300.000')
-            cy.get(status_tb).should('have.text', waitingStatus)
+            // cy.get(member_tb).should('have.text', fUllname_members)
+            // cy.get(receiverName_tb).should('have.text', receiverName)
+            // cy.get(totalPoint_tb).should('have.text', '300.000')
+            // cy.get(status_tb).should('have.text', waitingStatus)
 
             //MEMBER
-            cy.get(':nth-child(2) > .nav-link').click();
-            cy.get('.col.d-flex > a > .btn').click()
-            cy.get(companyMembers).type(company_members, { force: true }).type(enter)
-            cy.get(fUllnameMembers).type(fUllname_members);
-            cy.get(phoneMembers).type(phone_members);
-            cy.get(emailMembers).type(email_members);
-            cy.get(passwordMembers).type(password_members);
-            cy.get(birthdateMembers).type(birthdate_members);
-            cy.get(submit_btn).click();
+            // cy.get(':nth-child(2) > .nav-link').click();
+            // cy.get('.col.d-flex > a > .btn').click()
+            // cy.get(companyMembers).type(company_members, { force: true }).type(enter)
+            // cy.get(fUllnameMembers).type(fUllname_members);
+            // cy.get(phoneMembers).type(phone_members);
+            // cy.get(emailMembers).type(email_members);
+            // cy.get(passwordMembers).type(password_members);
+            // cy.get(birthdateMembers).type(birthdate_members);
+            // cy.get(submit_btn).click();
         })
     })
 })
