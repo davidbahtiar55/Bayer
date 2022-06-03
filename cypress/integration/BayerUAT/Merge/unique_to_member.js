@@ -21,10 +21,10 @@ const companyActions = '#react-select-3-input'
 const productActions = '#react-select-4-input'
 const type_form = '#react-select-6-input'
 const memberCode_form = '#react-select-5-input'
-const retailerCode_form = '#react-select-8-input'
-const uniquecode_form = '#react-select-9-input'
-const member_form = '#react-select-14-input'
-const reward_form = '#react-select-15-input'
+const retailerCode_form = '#react-select-9-input'
+const uniquecode_form = '#react-select-7-input'
+const member_form = '#react-select-10-input'
+const reward_form = '#react-select-11-input'
 
 
 describe('Flow CMS Uniquecode - Member Detail', () => {
@@ -90,7 +90,7 @@ describe('Flow CMS Uniquecode - Member Detail', () => {
             cy.get(addRedeem_btn).click({ force: true })
             cy.get(member_form).type(fUllname_members).type(enter)
 
-            // cy.get(member_form).type(fUllname_members,{ force: true }).type(enter)
+            //cy.get(member_form).type(fUllname_members,{ force: true }).type(enter)
             cy.get(description_form).type(descreward)
             cy.get(receiverName_form).type(receiverName)
             cy.get(receiverPhone_form).type(receiverPhone)
