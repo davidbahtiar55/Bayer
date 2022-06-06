@@ -1,7 +1,7 @@
 {
     "env": {
         "baseUrl": "https://crm-cms.stag-rewardx.insignia.co.id/#/",
-        "crmUrl" : "http://dev-crm-cms.stag-rewardx.insignia.co.id/",
+        "devUrl" : "http://dev-crm-cms.stag-rewardx.insignia.co.id/",
         "username": "su@insignia.co.id",
         "password": "admin1234"
     },

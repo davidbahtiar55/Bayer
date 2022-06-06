@@ -1,5 +1,5 @@
 beforeEach(() => {
-    cy.visit(Cypress.env("crmUrl"));
+    cy.visit(Cypress.env("devUrl"));
     cy.get(user_form).type(Cypress.env("username"))
     cy.get(pass_form).type(Cypress.env("password"))
     cy.get(login_btn).click()
