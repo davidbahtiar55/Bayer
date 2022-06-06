@@ -2,14 +2,14 @@
 const companyRewardsp = '#react-select-5-input'
 
 //UPDATE VARIABLE BEFORE RUN TEST
-const nameCompany = 'InsigniaID 302'
-const fUllname_members = 'Tuti 302'
-const phone_members = '081378849302'
-const email_members = 'no302@mail.com'
-const retailer_name = 'Insignia Store 302'
-const name_product = 'Phone 302'
-const code_rewardsp = 'RCP302'
-const name_rewardsp = 'Medali 302'
+const nameCompany = 'InsigniaID 305'
+const fUllname_members = 'Tuti 305'
+const phone_members = '081378849305'
+const email_members = 'no305@mail.com'
+const retailer_name = 'Insignia Store 305'
+const name_product = 'Phone 305'
+const code_rewardsp = 'RCP305'
+const name_rewardsp = 'Medali 305'
 
 beforeEach(() => {
     cy.visit(Cypress.env("baseUrl"));
