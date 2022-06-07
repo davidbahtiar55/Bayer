@@ -59,7 +59,7 @@ const sendAnEmail = (message, attachment) => {
         subject: `Automation Report - ${new Date()}`,
         html: `
         <p>Hallo, Berikut ini terlampir hasil report testing pada tanggal ${new Date()}</p>
-        <p>Anda dapat mengunduhnya berkasnya disini <a href="${uploadDownloadUrl}/${result.data[0].url}">Report.rar</a>&nbsp;</p>
+        <p>Anda dapat mengunduhnya berkasnya disini <a href="${uploadDownloadUrl}${result.data[0].url}">Report.rar</a>&nbsp;</p>
         <p>Bagaimana menampilkan Report:</p>
         <ul>
         <li>Unduh berkas report pada link diatas.</li>
