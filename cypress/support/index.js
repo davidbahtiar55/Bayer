@@ -26,7 +26,7 @@ after(() => {
     pathDes:'./report/'
   };
 
-  cy.task('sendMail', 'This will be output to email address', attachment)
+  cy.task('sendMail', ``, attachment)
     .then(result => {
       console.log(result);
       return null;
