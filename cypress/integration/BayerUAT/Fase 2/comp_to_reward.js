@@ -2,14 +2,14 @@
 const companyRewardsp = '#react-select-11-input'
 
 //UPDATE VARIABLE BEFORE RUN TEST
-const nameCompany = 'InsigniaID 408'
-const fUllname_members = 'Tuti 408'
-const phone_members = '081378849408'
-const email_members = 'no408@mail.com'
-const retailer_name = 'Insignia Store 408'
-const name_product = 'Phone 408'
-const code_rewardsp = 'RCP408'
-const name_rewardsp = 'Medali 408'
+const nameCompany = 'InsigniaID 407'
+const fUllname_members = 'Tuti 407'
+const phone_members = '081378849407'
+const email_members = 'no407@mail.com'
+const retailer_name = 'Insignia Store 407'
+const name_product = 'Phone 407'
+const code_rewardsp = 'RCP407'
+const name_rewardsp = 'Medali 407'
 
 beforeEach(() => {
     cy.visit(Cypress.env("devUrl"));
@@ -60,7 +60,11 @@ describe('Flow CMS Company - Reward', () => {
             cy.get(area_form).type(area, { force: true } ).wait(3000).type(enter)
             cy.get(memberAddress_form).type(memberAddress)
             cy.get(addressName_form).type(addressName)
+            cy.get(mainAddress_toggle).click()
             cy.get(submit_btn).click()
+            cy.wait(5000)
+            cy.get(addressName_tb).should('have.text', addressName)
+            cy.get(completeAddress_tb).should('have.text', memberAddress)
             cy.wait(5000)
 
             //ADD RETAIL
@@ -166,6 +170,8 @@ const area_form = '#react-select-9-input'
 const memberAddress_form = ':nth-child(5) > .form-control'
 const addressName_form = '#addressName'
 const mainAddress_toggle = '#isMainAddress'
+const addressName_tb = 'tbody > tr > :nth-child(1)'
+const completeAddress_tb = 'tbody > tr > :nth-child(2)'
 
 
 
