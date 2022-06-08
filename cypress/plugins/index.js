@@ -4,6 +4,8 @@ const fs = require('fs');
 const FormData = require('form-data');
 const archiver = require('archiver');
 const axios = require('axios');
+const path = require("path");
+const zl = require("zip-lib");
 
 const pathReport = 'C:/Users/INSLTP011/Desktop/Bayer/cypress/report';
 const uploadUrl = 'http://logm.stag-rewardx.insignia.co.id/api/upload';
@@ -36,6 +38,11 @@ module.exports = (on, config) => {
 };
 
 const sendAnEmail = (message, attachment) => {
+   zipDirectory(`${path.resolve("./cypress/report/")}/`, `${path.resolve("./cypress/compressed/report.zip")}`);
+}
+
+ function zipDirectory(source, outputTarget) {
+  zl.archiveFolder(source, outputTarget).then(function () {
     let configMail, publisher, emailTarget, mail;
     configMail = {
       service: 'gmail',
@@ -47,19 +54,24 @@ const sendAnEmail = (message, attachment) => {
   
     publisher = nodemailer.createTransport(configMail);
     emailTarget = `qaeinsignia@gmail.com`;
-
-    zipDirectory(`${pathReport}/`, `${pathReport}/report.zip`);
+    emailGroupTarget = [
+        'qaeinsignia@gmail.com',
+        'pdimasmahendra@gmail.com',
+        'muhammadhari018@gmail.com',
+        'davidbahtiar55@gmail.com'
+    ];
+    // emailTarget = emailGroupTarget.join(', ');
     console.log('..:::UPLOAD SECTION:::..');
     const params = new FormData();
-    params.append("files", fs.createReadStream('C:/Users/INSLTP011/Desktop/Bayer/cypress/report/report.rar'), "report.rar");
-    axios.post(uploadUrl, params).then(result => { 
+    params.append("files", fs.createReadStream(path.resolve("./cypress/compressed/report.zip")), "report.zip");
+     axios.post(uploadUrl, params).then(result => { 
       mail = {
         to: emailTarget,
         from: configMail.auth.user,
         subject: `Automation Report - ${new Date()}`,
         html: `
         <p>Hallo, Berikut ini terlampir hasil report testing pada tanggal ${new Date()}</p>
-        <p>Anda dapat mengunduhnya berkasnya disini <a href="${uploadDownloadUrl}${result.data[0].url}">Report.rar</a>&nbsp;</p>
+        <p>Anda dapat mengunduhnya berkasnya disini <a href="${uploadDownloadUrl}${result.data[0].url}">Report.zip</a>&nbsp;</p>
         <p>Bagaimana menampilkan Report:</p>
         <ul>
         <li>Unduh berkas report pada link diatas.</li>
@@ -139,35 +151,19 @@ const sendAnEmail = (message, attachment) => {
     .catch(error => { 
       console.error(error); throw error; 
     });
-  
-   
-}
-
-function zipDirectory(source, outputTarget) {
-  var archive = archiver("zip", { level: 9 });
-  const stream = fs.createWriteStream(outputTarget, { flags: 'w' });
-
-  stream.on("close", () => {
-      console.log('archiver has been finalized and the output file descriptor has closed.');
-  });
-
-  return new Promise(async (resolve, reject) => {
-      archive.pipe(stream);
-      archive.on("error", err => reject(err))
-      archive.directory(source, false);
-      await archive.finalize();
-      resolve();
+    console.log("compressed done");
+  }, function (err) {
+      console.log(err);
   });
 }
 
-function upload(){
-  console.log('..:::UPLOAD SECTION:::..');
-  const params = new FormData();
-  params.append("files", fs.createReadStream('C:/Users/INSLTP011/Desktop/Bayer/cypress/report/report.rar'), "report.rar");
-  axios.post(uploadUrl, params).then(result => { console.log(result); return result; })
-  .catch(error => { console.error(error); throw error; });
-}
-
+// function upload(){
+//   console.log('..:::UPLOAD SECTION:::..');
+//   const params = new FormData();
+//   params.append("files", fs.createReadStream('C:/Users/INSLTP011/Desktop/Bayer/cypress/report/report.rar'), "report.rar");
+//   axios.post(uploadUrl, params).then(result => { console.log(result); return result; })
+//   .catch(error => { console.error(error); throw error; });
+// }
 module.exports = (on, config) => {
   on('task', {
     sendMail (message, attachment) {
@@ -176,6 +172,8 @@ module.exports = (on, config) => {
     }
   })
 }
+
+
 // module.exports = (on) => {
 //   on('before:run', async (details) => {
 //     console.log('override before:run');
