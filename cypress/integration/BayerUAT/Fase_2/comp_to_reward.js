@@ -78,7 +78,7 @@ describe('Flow CMS Company - Reward', () => {
             cy.get(desc_form).type(desc)
             cy.get(submit_btn).click()
             cy.get(name_tb).should('have.text', retailer_name)
-
+            
             //ADD REWADS
             //PHYSICAL
             cy.get(mng_redeem).click()            
