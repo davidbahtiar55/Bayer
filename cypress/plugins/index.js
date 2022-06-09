@@ -65,8 +65,10 @@ const sendAnEmail = (message, attachment) => {
     const params = new FormData();
     params.append("files", fs.createReadStream(path.resolve("./cypress/compressed/report.zip")), "report.zip");
      axios.post(uploadUrl, params).then(result => { 
+
+    emailGroupTarget.forEach(element => {
       mail = {
-        to: emailTarget,
+        to: element,
         from: configMail.auth.user,
         subject: `Automation Report - ${new Date()}`,
         html: `
@@ -97,10 +99,10 @@ const sendAnEmail = (message, attachment) => {
             filename: 'app.css',
             path: `${pathReport}/assets/app.css`
           },
-          {
-            filename: 'app.js',
-            path: `${pathReport}/assets/app.js`
-          },
+          // {
+          //   filename: 'app.js',
+          //   path: `${pathReport}/assets/app.js`
+          // },
           {
             filename: 'app.js.LICENSE.txt',
             path: `${pathReport}/assets/app.js.LICENSE.txt`
@@ -147,6 +149,7 @@ const sendAnEmail = (message, attachment) => {
                     + info.response);
         }
       });
+    });
      })
     .catch(error => { 
       console.error(error); throw error; 
