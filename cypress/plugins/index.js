@@ -38,11 +38,20 @@ module.exports = (on, config) => {
 };
 
 const sendAnEmail = (message, attachment) => {
+  // fs.unlink(outputTarget, function (err) {     
+  //   try{
+  //     if (err) {  console.error(err) }                                                          
+  //     console.log('File has been Deleted');    
+  //   }catch(err){}
+  // });  
+
    zipDirectory(`${path.resolve("./cypress/report/")}/`, `${path.resolve("./cypress/compressed/report.zip")}`);
 }
 
  function zipDirectory(source, outputTarget) {
-  zl.archiveFolder(source, outputTarget).then(function () {
+  zl.archiveFolder(source, outputTarget, {
+    overwrite: true
+  }).then(function () {
     let configMail, publisher, emailTarget, mail;
     configMail = {
       service: 'gmail',
