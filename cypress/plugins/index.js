@@ -7,7 +7,7 @@ const axios = require('axios');
 const path = require("path");
 const zl = require("zip-lib");
 
-const pathReport = 'C:/Users/INSLTP011/Desktop/Bayer/cypress/report';
+const pathReport = `${path.resolve("./cypress/report")}`;
 const uploadUrl = 'http://logm.stag-rewardx.insignia.co.id/api/upload';
 const uploadDownloadUrl = 'http://logm.stag-rewardx.insignia.co.id';
 
