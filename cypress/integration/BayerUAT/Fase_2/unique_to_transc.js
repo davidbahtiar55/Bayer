@@ -1,99 +1,145 @@
 beforeEach(() => {
-    cy.visit(Cypress.env("devUrl"));
-    cy.get(user_form).type(Cypress.env("username"))
-    cy.get(pass_form).type(Cypress.env("password"))
-    cy.get(login_btn).click()
+  cy.visit(Cypress.env("devUrl"));
+  cy.get(user_form).type(Cypress.env("username"))
+  cy.get(pass_form).type(Cypress.env("password"))
+  cy.get(login_btn).click()
 })
 
-describe('Redemption', () => {
-  context('Add Redeemption', function () {
-    it('Add Redemption With Valid Data', function () {
-    cy.get(':nth-child(3) > .nav-group-toggle').click()
-      // cy.wait(3000)
-      cy.get('.show > .nav-group-items > .nav-item > .nav-link').click({ force: true }).type(enter)
-    //   cy.get(member_form).type(member, { force: true }).type(enter)
-    //   cy.get(description_form).type(desc)
-    //   cy.get(receiverName_form).type(receiverName)
-    //   cy.get(receiverPhone_form).type(receiverPhone)
-    //   cy.get(receiverAddress_form).type(receiverAddress)
-    //   cy.get(reward_form).type(reward_1, { force: true }).type(enter)
-    //   cy.get(reward_form).type(reward_2, { force: true }).type(enter)
-    //   cy.get(reward_form).type(reward_3, { force: true }).type(enter)
-    //   cy.get(qty_form_1).clear().type(qty)
-    //   cy.get(qty_form_2).clear().type(qty)
-    //   cy.get(qty_form_3).clear().type(qty)
+//Variable
+const uniquecode = 'DMA001'
+const nameCompany = 'Droid INK'
+const name_actions = 'DMA'
+const code_actions = 'DMA001'
+const fUllname_members = 'Qa Frontline'
+const name_product = 'DMA'
+const retailer_name = 'Droid'
+const invoice2 = 'INV-200'
 
-    //   cy.get(totalPoint_obj).should('have.text', totalPoint) //Check Grand Total Redemption
+//Object Ghoib
+const reward_form = '#react-select-3-input'
+const productActions = '#react-select-2-input'
+const companyActions = '#react-select-3-input'
+const memberCode_form = '#react-select-5-input'
+const type_form = '#react-select-6-input'
+const retailerCode_form = '#react-select-8-input'
+const uniquecode_form = '#react-select-9-input'
+const productUnique = '#react-select-4-input'
 
-    //   cy.get(submit_btn).click()
 
-      //Check redemption table after submit form
-    //   cy.get(member_tb).should('have.text', member)
-    //   cy.get(receiverName_tb).should('have.text', receiverName)
-    //   cy.get(totalPoint_tb).should('have.text', '301.000')
-    //   cy.get(status_tb).should('have.text', waitingStatus)
+
+describe('Unique to Transc', () => {
+  context('Unique to Transc', function (tions) {
+    it('Unique to Transc With Valid Data', function () {
+
+      //Add Uniquecode
+      cy.get(manageProduct).click()
+      cy.get(uniquecodeMenu).click()
+      cy.get(add_btn).click()
+      cy.wait(5000)
+      cy.get(codeUniquecode).type(uniquecode)                   //UNIQUE
+      cy.get(statusUniquecode).select(status_Uniquecode)
+      cy.get(productActions).type(name_product, { force: true }).wait(2000).type(enter)
+      cy.get(submit_btn).click()
+      cy.wait(4000)
+
+      //Check Uniquecode Table
+      cy.get(code_Tbu).should('have.text', uniquecode)
+      cy.get(status_Tbu).should('have.text', status_Uniquecode)
+      cy.get(product_Tbu).should('have.text', name_product)
+
+      //Action
+      cy.get(actionsMenu).click()
+      cy.get(add_btn).click()
+      cy.get(companyActions).type(nameCompany, { force: true }).wait(5000).type(enter)
+      cy.get(nameActions).type(name_actions, { force: true })
+      cy.get(codeActions).type(code_actions)
+      cy.get(pointActions).type(point_actions)
+      cy.get(maxpointActions).type(maxpoint_actions)
+      cy.wait(3000)
+      cy.get(productUnique).type(name_product, { force: true }).type(enter)
+      cy.get(maxcapperiodeActions).type(maxcapperiode_actions)
+      cy.get(havemaxcapAction).check()
+      cy.get(submit_btn).click()
+      cy.wait(7000)
+
+      //Check Actions Table
+      cy.get(name_tba).should('have.text', name_actions)
+      cy.get(code_tba).should('have.text', code_actions)
+      cy.get(generationdays_tba).should('have.text', maxcapperiode_actions)
+
+      //Transaction Unique Code
+      cy.get(manageTransc).click()
+      cy.get(transc_Menu).click()
+      cy.get(add_btn).click({ force: true })
+      cy.get(memberCode_form).type(fUllname_members, { force: true }).wait(2000).type(enter)
+      cy.get(type_form).type('Unique Code', { force: true }).type(enter)
+      cy.get(invoice_form).type(invoice2, { force: true })
+      cy.get(retailerCode_form).type(retailer_name, { force: true }).type(enter)
+      cy.get(addressretail_form).type(address_retail, { force: true })
+      cy.get(date_form).type(date, { force: true })
+      cy.get(uniquecode_form).type(uniquecode, { force: true }).type(enter)
+      cy.get(submit_btn_transc).click({ force: true })
+
+      cy.get('tbody > :nth-child(1) > :nth-child(1)').should('have.text', invoice2)
+      cy.get('tbody > :nth-child(1) > :nth-child(6)').should('have.text', 'uniquecode')
+      cy.get('tbody > :nth-child(1) > :nth-child(7)').should('have.text', fUllname_members)
+      cy.wait(6000)
+
+      cy.get(manageProduct).click()
+      cy.get(uniquecodeMenu).click()
+      cy.get('tbody > :nth-child(1) > :nth-child(2)').should('have.text', 'Not Available')
+
+
     })
-
   })
-
-  // context('Add Redeemption', function () {
-  //   it('Update Redemption With other Status', function () {
-  //     cy.get(redeem_menu).click()
-  //     cy.get(edit_btn).click({ force: true })
-  //     cy.get(status_form).select(completedStatus)
-  //     cy.get(submit_btn).click()
-
-  //     //Check redemption table after submit form
-  //     cy.get(member_tb).should('have.text', member)
-  //     cy.get(receiverName_tb).should('have.text', receiverName)
-  //     cy.get(totalPoint_tb).should('have.text', '301.000')
-  //     cy.get(status_tb).should('have.text', completedStatus)
-  //   })
-
-  // })
 })
 
 
 //Variable
-const member = 'Dimas WA'
-const desc = 'Reward Reward Reward Reward Reward'
-const receiverName = 'Putra Herlambang'
-const receiverPhone = '085645213987'
-const receiverAddress = 'Jl. Awas Banyak Anak Kecil No. 45A-B'
-const reward_1 = 'GoPay'
-const reward_2 = 'Voucher McD'
-const reward_3 = 'Boneka Chucky'
-const qty = '2'
-const totalPoint = 'Total Point:  301.000'
-const waitingStatus = 'waiting'
-const processStatus = 'process'
-const shippingStatus = 'shipping'
-const completedStatus = 'completed'
-const rejectedStatus = 'rejected'
-
-
+const status_Uniquecode = 'Available'
 
 //Object
+//General
 const user_form = '.mb-3 > .form-control'
 const pass_form = '.mb-4 > .form-control'
 const login_btn = ':nth-child(1) > .btn'
-const redeem_menu = ':nth-child(10) > .nav-link'
-const addRedeem_btn = '.col.d-flex > a > .btn'
-const member_form = '#react-select-2-input'
-const description_form = ':nth-child(2) > .form-control'
-const receiverName_form = '#receiverName'
-const receiverPhone_form = '#receiverPhone'
-const receiverAddress_form = ':nth-child(6) > .form-control'
-const reward_form = '#react-select-3-input'
-const qty_form_1 = 'tbody > :nth-child(1) > :nth-child(2) > .form-control'
-const qty_form_2 = ':nth-child(2) > :nth-child(2) > .form-control'
-const qty_form_3 = ':nth-child(3) > :nth-child(2) > .form-control'
+const add_btn = '.col.d-flex > a > .btn'
 const enter = '{enter}'
-const totalPoint_obj = '.col-12 > .d-flex'
 const submit_btn = '.btn'
-const member_tb = 'tbody > :nth-child(1) > :nth-child(3)'
-const receiverName_tb = 'tbody > :nth-child(1) > :nth-child(4)'
-const totalPoint_tb = 'tbody > :nth-child(1) > :nth-child(9)'
-const status_tb = 'tbody > :nth-child(1) > :nth-child(10)'
-const edit_btn = '[href="#/redemptions/moderate/149"] > .btn'
-const status_form = '.form-select'
+const submit_btn_transc = '.d-flex > .btn'
+
+//Uniquecode
+const codeUniquecode = '#code'
+const statusUniquecode = '#statuss'
+const code_Tbu = 'tbody > :nth-child(1) > :nth-child(1)'
+const status_Tbu = 'tbody > :nth-child(1) > :nth-child(2)'
+const product_Tbu = 'tbody > :nth-child(1) > :nth-child(3)'
+
+//Action
+const nameActions = '#name'
+const point_actions = '100000'
+const maxpoint_actions = '20000'
+const maxpointActions = '#capGeneration'
+const codeActions = '#code'
+const pointActions = '#point'
+const maxcapperiodeActions = '#capGenerationDays'
+const maxcapperiode_actions = '3'
+const havemaxcapAction = '#haveCapGeneration'
+const name_tba = 'tbody > :nth-child(1) > :nth-child(2)'
+const code_tba = 'tbody > :nth-child(1) > :nth-child(3)'
+const generationdays_tba = 'tbody > :nth-child(1) > :nth-child(6)'
+
+//Transaction
+const invoice_form = '#InvoiceNumber'
+const addressretail_form = '#RetailAddress'
+const address_retail = 'Jl. Tebet Timur'
+const date = '2022-05-12'
+const date_form = '#TransactionDate'
+
+
+//Menu CMS
+const manageProduct = '[items="[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]"] > .nav-group-toggle'
+const uniquecodeMenu = '.nav-group-items > :nth-child(5) > .nav-link'
+const actionsMenu = '.nav-group-items > :nth-child(4) > .nav-link'
+const manageTransc= '[items="[object Object],[object Object],[object Object]"] > .nav-group-toggle'
+const transc_Menu= '.show > .nav-group-items > :nth-child(1) > .nav-link'
