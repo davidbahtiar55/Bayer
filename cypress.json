@@ -1,0 +1,19 @@
+{
+    "env": {
+        "baseUrl": "https://crm-cms.stag-rewardx.insignia.co.id/#/",
+        "devUrl" : "http://dev-crm-cms.stag-rewardx.insignia.co.id/",
+        "username": "su@insignia.co.id",
+        "password": "admin1234"
+    },
+    "chromeWebSecurity": false,
+    "viewportWidth": 1280,
+    "viewportHeight": 720,
+    "screenshotOnRunFailure": true,
+    "reporter": "cypress-mochawesome-reporter",
+    "reporterOptions": {
+        "reportDir": "cypress/report",
+        "charts": true,
+        "reportPageTitle": "CMS Automation Report",
+        "embeddedScreenshots": true
+    }
+}
