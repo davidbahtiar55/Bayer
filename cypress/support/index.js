@@ -21,5 +21,5 @@ Cypress.on('uncaught:exception', (err, runnable) => {
 });
 
 // Alternatively you can use CommonJS syntax:
-// require('./commands')
+require('./commands')
 import 'cypress-mochawesome-reporter/register';
