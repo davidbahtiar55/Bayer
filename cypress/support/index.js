@@ -20,6 +20,18 @@ Cypress.on('uncaught:exception', (err, runnable) => {
   return false;
 });
 
+after(() => {
+  const attachment = {
+    fileName: `Report ${new Date()}`,
+    pathDes:'./report/'
+  };
+
+  cy.task('sendMail', ``, attachment)
+    .then(result => {
+      console.log(result);
+      return null;
+    });
+});
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
 import 'cypress-mochawesome-reporter/register';
