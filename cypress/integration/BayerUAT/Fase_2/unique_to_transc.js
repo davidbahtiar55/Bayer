@@ -6,14 +6,14 @@ beforeEach(() => {
 })
 
 //Variable
-const uniquecode = 'DMA001'
+const uniquecode = 'DMA002'
 const nameCompany = 'Droid INK'
 const name_actions = 'DMA'
-const code_actions = 'DMA001'
+const code_actions = 'DMA002'
 const fUllname_members = 'Qa Frontline'
 const name_product = 'DMA'
 const retailer_name = 'Droid'
-const invoice2 = 'INV-200'
+const invoice2 = 'INV-201'
 
 //Object Ghoib
 const reward_form = '#react-select-3-input'
@@ -141,5 +141,5 @@ const date_form = '#TransactionDate'
 const manageProduct = '[items="[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]"] > .nav-group-toggle'
 const uniquecodeMenu = '.nav-group-items > :nth-child(5) > .nav-link'
 const actionsMenu = '.nav-group-items > :nth-child(4) > .nav-link'
-const manageTransc= '[items="[object Object],[object Object],[object Object]"] > .nav-group-toggle'
-const transc_Menu= '.show > .nav-group-items > :nth-child(1) > .nav-link'
+const manageTransc = '[items="[object Object],[object Object],[object Object]"] > .nav-group-toggle'
+const transc_Menu = '.show > .nav-group-items > :nth-child(1) > .nav-link'
